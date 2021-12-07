@@ -6,4 +6,12 @@ function stringLength(string) {
   }
 }
 
-module.exports = stringLength;
+function reverseString(string) {
+  if (string.length > 0 && string.length < 10) {
+    return string.split("").reverse().join("");
+  } else {
+    return "Invalid string";
+  }
+}
+
+module.exports = {stringLength, reverseString};
