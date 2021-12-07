@@ -14,6 +14,20 @@ function reverseString(string) {
   }
 }
 
+function capitalizeString(string) {
+    const regExp = /[a-z]/;
+  if (string.length > 0 && string.length < 10) {
+    if (regExp.test(string.charAt(0)) === true) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    } else {
+        return "The first character is neither a lowercase letter or is not a letter";
+    }
+  } else {
+      return "Invalid string";
+  }
+
+}
+
 class Calculator {
   constructor(num1, num2) {
     this.num1 = num1;
@@ -76,6 +90,5 @@ class Calculator {
     return this.num1 / this.num2;
   }
 }
-const num1 = new Calculator(10, 5);
-console.log(num1.add());
-module.exports = {stringLength, reverseString, Calculator};
+
+module.exports = {stringLength, reverseString, capitalizeString, Calculator};

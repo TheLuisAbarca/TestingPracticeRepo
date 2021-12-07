@@ -1,4 +1,4 @@
-const {stringLength, reverseString, Calculator} = require('./index');
+const {stringLength, reverseString, capitalizeString, Calculator} = require('./index');
 
 test('lol has 3 characters as string length.', () => {
     expect(stringLength('lol')).toBe(3);
@@ -83,5 +83,28 @@ describe('Calculator', () => {
         test('Division of 10 divides 5 is 2.', () => {
             expect(Tupla.divide()).toBe(2);
         });
+    });
+});
+
+describe('String', () => {
+
+    test('angela -> Angela.', () => {
+        expect(capitalizeString('angela')).toMatch(/Angela/);
+    });
+    
+    test('Empty has 0 characters as string length.', () => {
+        expect(capitalizeString('')).toMatch(/Invalid string/);
+    });
+
+    test('murcielagos has 11 characters as string length.', () => {
+        expect(capitalizeString('murcielagos')).toMatch(/Invalid string/);
+    });
+
+    test('1 as the first character', () => {
+        expect(capitalizeString('1lane')).toMatch(/The first character is neither a lowercase letter or is not a letter/);
+    });
+
+    test('P as the first character', () => {
+        expect(capitalizeString('Plane')).toMatch(/The first character is neither a lowercase letter or is not a letter/);
     });
 });
